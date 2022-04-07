@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Create New Movie</title>
+<!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.css"
+  rel="stylesheet"
+/>
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body{
+    color: #444;
+    background:linear-gradient(to right bottom, #A9C9FF 0%, #FFBBEC 100%);
+    padding: 30px;
+}
+.form{
+    width: 800px;
+    padding: 50px;
+    background: white;
+}
+
+</style>
+</head>
+<body>
+    <div align="center">
+        <div class="jumbotron">
+  <div class="container">
+    <h1 class="display-4">Create New Movie</h1>
+  </div>
+</div>
+        <br />
+<div class="form">
+        <form action="#" th:action="@{/save}" th:object="${Movie}"
+            method="post">
+
+<!-- Text input -->
+  <div class="form-outline mb-4">
+    <input type="text" th:field="*{moviename}" id="form6Example3" class="form-control" />
+    <label class="form-label" for="form6Example3">Movie Name</label>
+  </div>
+
+  <!-- Text input -->
+  <div class="form-outline mb-4">
+    <input type="text" th:field="*{movieimg}" id="form6Example4" class="form-control" />
+    <label class="form-label" for="form6Example4">Movie Image</label>
+  </div>
+
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <input type="text" th:field="*{moviegenre}" id="form6Example5" class="form-control" />
+    <label class="form-label" for="form6Example5">Movie Genre</label>
+  </div>
+  
+  <!-- Message input -->
+  <div class="form-outline mb-4">
+    <textarea th:field="*{moviedescription}"  class="form-control" id="form6Example7" rows="4"></textarea>
+    <label class="form-label" for="form6Example7">Movie Description</label>
+  </div>
+  
+    <!-- 2 column grid layout with text inputs for the first and last names -->
+  <div class="row mb-4">
+    <div class="col">
+      <div class="form-outline">
+        <input type="text" th:field="*{movierating}"  id="form6Example1" class="form-control" />
+        <label class="form-label" for="form6Example1">Movie Rating</label>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-outline">
+        <input type="text" th:field="*{movieprice}" id="form6Example2" class="form-control" />
+        <label class="form-label" for="form6Example2">Movie Price</label>
+      </div>
+    </div>
+        <div class="col">
+      <div class="form-outline">
+        <input type="text" th:field="*{parentalrating}"  id="form6Example2" class="form-control" />
+        <label class="form-label" for="form6Example2">Parental Rating:</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-primary btn-block mb-4">Add Movie</button>
+</form>
+    </div>
+</div>
+ <br /> <br /> <br /> <br /> <br />
+   </body>
+</html>
