@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<title>Movie Manager</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.card {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #444;
+    background:linear-gradient(to right bottom, #A9C9FF 0%, #FFBBEC 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.movie {
+    max-width: 800px;
+    border-radius: 5px;
+    display: flex;
+    box-shadow: 0 5px 20px 10px rgba(0, 0, 0, .2);
+   overflow: hidden;
+}
+
+.movie__hero {
+  flex: 0 0 45%;
+}
+
+.movie__img {
+    width: 100%;
+    display: block;
+}
+
+.movie__content {
+    background-color: #fff;
+    flex: 1;
+    padding: 35px 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.movie__price {
+    background:linear-gradient(to bottom, #A9C9FF 0%, #FFBBEC 100%);
+    flex: 0 0 50px;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: rgb(255, 255, 255);
+    writing-mode: vertical-lr;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.movie__title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.heading__primary {
+    font-size: 16px;
+    margin-right: auto;
+    color: royalblue;
+}
+
+.fa-fire {
+    color: salmon;
+}
+
+.movie__tag {
+    font-size: 10px;
+    color: #fff;
+  padding: 2px 7px;
+  border-radius: 100px;
+  margin-right: 8px;
+  display: block;
+  text-transform: uppercase;
+
+}
+
+.movie__tag--1 {
+  background-color: #A9C9FF;
+  font-size: 16px;
+}
+
+.movie__description {
+    font-size: 17px;
+}
+
+.movie__details {
+    display: flex;
+    margin: auto;
+}
+
+.movie__detail {
+   font-size: 16px;
+   margin-right: 20px;
+   display: flex;
+   align-items: center;
+}
+
+.icons i {
+    margin-right: 3px;
+    font-size: 18px;
+}
+
+.icons-red {
+    color: salmon;
+}
+.icons-grey {
+    color: grey;
+}
+
+.icons-yellow {
+    color: rgb(190, 190, 71);
+
+}
+</style>
+</head>
+<body>
+<h1>Movie List</h1>
+<div class="card" align="center">
+<br />
+<a href="/new">
+    <button type="button" class="btn btn-primary btn-lg">Create New Movie</button>
+</a>
+    <br/>
+<figure class="movie" th:each="movie : ${listMovies}">
+  <div class="movie__hero">
+    <img th:src="${movie.movieimg}" alt="movie image" class="movie__img">
+  </div>
+  <div class="movie__content">
+    <div class="movie__title">
+      <h1 th:text="${movie.moviename}" class="heading__primary">Movie Name <i class="fas fa-fire"></i></h1>
+      <div th:text="${movie.moviegenre}" class="movie__tag movie__tag--1">Movie Genre</div>
+    </div>
+    <p th:text="${movie.moviedescription}" class="movie__description">
+      Movie Description
+    </p>
+    <div class="movie__details">
+      <p th:text="${movie.movierating}" class="movie__detail"><span class="icons icons-red"><i class="fas fa-camera-retro"></i> Movie Rating</span></p>
+      <p th:text="${movie.parentalrating}" class="movie__detail"><span class="icons icons-yellow"><i class="fas fa-file-invoice-dollar"></i>
+        </span>Parental Rating</p>
+    </div>
+  </div>
+  <div th:text="${movie.movieprice}" class="movie__price">Movie Price</div>
+</figure>
+
+</div>   
+</body>
+</html>
