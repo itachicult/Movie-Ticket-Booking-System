@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Create New Movie</title>
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css"
+	rel="stylesheet">
+<!-- Bootstrap core CSS -->
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"></link>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+	crossorigin="anonymous"></script>
+<style>
+body {
+	color: #444;
+	background: linear-gradient(to right bottom, #A9C9FF 0%, #FFBBEC 100%);
+}
+
+.body {
+	padding: 30px;
+}
+
+.form {
+	width: 800px;
+	padding: 50px;
+	background: white;
+}
+
+input {
+	border: 1px solid #000 width: 200px;
+	padding: 20px;
+	font-size: 20px;
+}
+
+#button {
+	width: 200px;
+	padding-top: 80px
+}
+</style>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<a class="navbar-brand" href="/">Movie Booking</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNav" aria-controls="navbarNav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav ">
+				<li class="nav-item active"><a class="nav-link" href="/home">Home
+						<span class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item active"><a class="nav-link" href="/book">Book
+						Ticket</a></li>
+				<li class="nav-item active"><a class="nav-link"
+					href="/movielist">Movies List</a></li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+					role="button" aria-haspopup="true" aria-expanded="false">[[${#request.userPrincipal.principal.fullName}]]</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="/profile">Profile</a>
+						<div class="dropdown-item">
+							<form th:action="@{/logout}" method="post">
+								<button type="submit" class="btn btn-outline-primary btn-sm">Sign
+									Out</button>
+							</form>
+						</div>
+					</div></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="body" align="center">
+		<div class="jumbotron">
+			<div class="container">
+				<h1 class="display-4">Book Movie Ticket</h1>
+			</div>
+		</div>
+		<br />
+		<div class="form">
+			<form action="#" th:action="@{/saveticket}"
+				th:object="${movieticket}" method="post">
+
+				<!-- Text input -->
+				<div class="form-group">
+					<label for="form6Example3">Movie Name</label> <input type="text"
+						th:field="*{moviename}" id="form6Example3" class="form-control">
+				</div>
+				<!-- Text input -->
+				<div class="form-group">
+					<label for="form6Example4">User Name</label> <input type="text"
+						th:field="*{user}" id="form6Example4" class="form-control" />
+
+				</div>
+
+				<!-- 2 column grid layout with text inputs for the first and last names -->
+				<div class="form-row col-md-4">
+					<div class="col">
+						<label class="form-label" for="form6Example1">Number Of
+							Tickets</label> <input type="text" th:field="*{numberoftickets}"
+							id="form6Example1" class="form-control" />
+					</div>
+				</div>
+				<div class="form-row col-md-4">
+					<div class="col">
+						<label class="form-label" for="form6Example3">Timing</label> <select
+							class="form-control" th:field="*{timing}" name="timing" id="timing">
+							<option value="9:00 pm">9:00 am</option>
+							<option value="12:00 pm">12:00 pm</option>
+							<option value="3:00 pm">3:00 pm</option>
+							<option value="6:00 pm">6:00 pm</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-row col-md-4">
+					<div class="col">
+						<label class="form-label" for="form6Example3">Screen</label> <select
+							class="form-control" th:field="*{Screen}" name="Screen" id="Screen">
+							<option value="A1">A1</option>
+							<option value="A2">A2</option>
+							<option value="B1">B1</option>
+							<option value="G1">G1</option>
+						</select>
+					</div>
+				</div>
+				<div id="button">
+					<button type="submit" class="btn btn-primary btn-block mb-4">Add
+						Movie</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+</body>
+</html>
