@@ -2,6 +2,8 @@ package com.project.moviebookingsystem.controller;
 
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -69,8 +71,14 @@ public class ApiController {
 	}
 	
 	@RequestMapping("/movielist")
-	public String viewAllMovies(Model model) {
+	public String viewAllMovies(Principal principal,Model model) {
 		List<Movie> listMovies = service.listAll();
+		String[] admin = new String[] {"arjunv2001@gmail.com", "vkironv@yahoo.com"};
+		String currUser = principal.getName();
+		model.addAttribute(currUser);
+		List<String> adminList = new ArrayList<>(Arrays.asList(admin));
+		boolean cond = adminList.contains(currUser);
+		model.addAttribute("cond",cond);
 		model.addAttribute("listMovies", listMovies);
 		return "movielist";
 	}
@@ -103,9 +111,14 @@ public class ApiController {
 	}
 	
 	@RequestMapping("/book")
-	public String showmovieticketbookpage(Model model) {
+	public String showmovieticketbookpage(Principal principal,Model model) {
 	    movieticket movieticket = new movieticket();
+	    String currUser = principal.getName();
+	    movieticket.setUser(currUser);
 	    model.addAttribute("movieticket",movieticket);
+	    List<Movie> listMovies = service.listAll();
+	    model.addAttribute("listMovies", listMovies);
+		//model.addAttribute("currUser",currUser);
 	    return "movie_ticket";
 	}
 	

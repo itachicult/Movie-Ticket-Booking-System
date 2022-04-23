@@ -93,14 +93,16 @@ input {
 
 				<!-- Text input -->
 				<div class="form-group">
-					<label for="form6Example3">Movie Name</label> <input type="text"
-						th:field="*{moviename}" id="form6Example3" class="form-control">
+					<label for="form6Example3">Movie Name</label> <select
+						class="form-control"  th:field="*{moviename}">
+						<option th:each="dropDownItem : ${listMovies}"
+							th:value="${dropDownItem.moviename}" th:text="${dropDownItem.moviename}" />
+					</select>
 				</div>
 				<!-- Text input -->
 				<div class="form-group">
-					<label for="form6Example4">User Name</label> <input type="text"
-						th:field="*{user}" id="form6Example4" class="form-control" />
-
+					<label for="form6Example4">User Name</label> 
+					<input type="text" th:field="*{user}" id="form6Example4" class="form-control" readonly/>
 				</div>
 
 				<!-- 2 column grid layout with text inputs for the first and last names -->
@@ -114,7 +116,8 @@ input {
 				<div class="form-row col-md-4">
 					<div class="col">
 						<label class="form-label" for="form6Example3">Timing</label> <select
-							class="form-control" th:field="*{timing}" name="timing" id="timing">
+							class="form-control" th:field="*{timing}" name="timing"
+							id="timing">
 							<option value="9:00 pm">9:00 am</option>
 							<option value="12:00 pm">12:00 pm</option>
 							<option value="3:00 pm">3:00 pm</option>
@@ -125,7 +128,8 @@ input {
 				<div class="form-row col-md-4">
 					<div class="col">
 						<label class="form-label" for="form6Example3">Screen</label> <select
-							class="form-control" th:field="*{Screen}" name="Screen" id="Screen">
+							class="form-control" th:field="*{Screen}" name="Screen"
+							id="Screen">
 							<option value="A1">A1</option>
 							<option value="A2">A2</option>
 							<option value="B1">B1</option>
@@ -134,8 +138,7 @@ input {
 					</div>
 				</div>
 				<div id="button">
-					<button type="submit" class="btn btn-primary btn-block mb-4">Add
-						Movie</button>
+					<button type="submit" class="btn btn-primary btn-block mb-4">Book Ticket</button>
 				</div>
 			</form>
 		</div>

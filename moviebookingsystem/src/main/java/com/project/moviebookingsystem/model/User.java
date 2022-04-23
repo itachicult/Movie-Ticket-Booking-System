@@ -21,17 +21,6 @@ public class User {
     @Column(name = "last_name", nullable = false, length = 20)
     private String lastName;
     
-    @Column(name = "isAdmin", nullable = false, length = 45)
-    private String isAdmin;
-
-	public String getIsAdmin() {
-		return isAdmin;
-	}
-
-	public void setIsAdmin(String isAdmin) {
-		this.isAdmin = isAdmin;
-	}
-
 	public Long getId() {
 		return id;
 	}
