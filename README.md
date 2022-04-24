@@ -1,7 +1,6 @@
-# # Movie-Ticket-Booking-System
+# Movie-Ticket-Booking-System
 
-
-## ## Technologies Used:
+## Technologies Used:
 
  - Front-End
 	 - Thymeleaf
