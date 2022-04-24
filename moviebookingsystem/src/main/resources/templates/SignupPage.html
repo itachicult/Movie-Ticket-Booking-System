@@ -1,28 +1,47 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="ISO-8859-1">
-    <title>Sign Up - CodeJava</title>
+    <title>Registration</title>
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
+<style>
+body {
+	color: #444;
+	background: linear-gradient(to right bottom, #A9C9FF 0%, #FFBBEC 100%);
+}
+#form{
+    color: white;
+    background: linear-gradient(to right bottom, #f6d327 0%, #de4daa 100%);
+    max-width: 625px;
+    padding: 50px;
+    box-shadow: 12px 12px #A9C9FF;
+}
+</style>
 <body>
-    <div class="container text-center">
+        <br />
+        <br />
+        <br />
+        <br />
+         <br />
+    <div id="form" class="container text-center">
         <div>
             <h1>User Registration - Sign Up</h1>
         </div>
+        <br />
         <form th:action="@{/process_register}" th:object="${user}"
             method="post" style="max-width: 600px; margin: 0 auto;">
         <div class="m-3">
             <div class="form-group row">
-                <label class="col-4 col-form-label">E-mail: </label>
+                <label class="col-4 col-form-label"><b>E-mail:</b></label>
                 <div class="col-8">
                     <input type="email" th:field="*{email}" class="form-control" required />
                 </div>
             </div>
              
             <div class="form-group row">
-                <label class="col-4 col-form-label">Password: </label>
+                <label class="col-4 col-form-label"><b>Password:</b> </label>
                 <div class="col-8">
                     <input type="password" th:field="*{password}" class="form-control"
                             required minlength="6" maxlength="10"/>
@@ -30,7 +49,7 @@
             </div>
              
             <div class="form-group row">
-                <label class="col-4 col-form-label">First Name: </label>
+                <label class="col-4 col-form-label"><b>First Name:</b> </label>
                 <div class="col-8">
                     <input type="text" th:field="*{firstName}" class="form-control"
                             required minlength="2" maxlength="20"/>
@@ -38,7 +57,7 @@
             </div>
              
             <div class="form-group row">
-                <label class="col-4 col-form-label">Last Name: </label>
+                <label class="col-4 col-form-label"><b>Last Name:</b> </label>
                 <div class="col-8">
                     <input type="text" th:field="*{lastName}" class="form-control"
                             required minlength="2" maxlength="20" />
