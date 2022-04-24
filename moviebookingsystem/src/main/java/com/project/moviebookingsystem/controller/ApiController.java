@@ -40,11 +40,7 @@ public class ApiController {
 	private MovieTicketService ticketservice;
 	@Autowired
     private UserRepository userRepo;
-	
-	//HttpServletRequest request;
-	//String user=request.getUserPrincipal().getName();
-	
-	
+
 	@RequestMapping("/")
 	public String displayMainPage() {
 		return "mainPage";
@@ -132,7 +128,7 @@ public class ApiController {
 	public String confirmation() {
 		return "confirmation";
 	}
-	
+
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String saveMovie(@ModelAttribute("Movie") Movie movie) {
 	    service.save(movie);
