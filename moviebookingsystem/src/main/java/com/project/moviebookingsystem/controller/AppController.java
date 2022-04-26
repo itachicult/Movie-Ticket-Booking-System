@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.project.moviebookingsystem.model.CustomUserDetails;
+import com.project.moviebookingsystem.details.CustomUserDetails;
 import com.project.moviebookingsystem.model.Movie;
 import com.project.moviebookingsystem.model.User;
 import com.project.moviebookingsystem.model.movieticket;
@@ -30,7 +30,7 @@ import com.project.moviebookingsystem.service.MovieService;
 import com.project.moviebookingsystem.service.MovieTicketService;
 
 @Controller
-public class ApiController {
+public class AppController {
 	
 	@Autowired
 	private MovieService service;

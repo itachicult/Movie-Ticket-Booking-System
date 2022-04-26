@@ -125,6 +125,12 @@
 	margin: auto;
 }
 
+.movie__detail_1{
+	align-items: center;
+	margin: auto;
+	color: red;
+}
+
 .movie__detail {
 	font-size: 16px;
 	margin-right: 20px;
@@ -223,8 +229,10 @@
 					<p th:text="${movie.parentalrating}" class="movie__detail">
 						Parental Rating</p>
 					<b>Seats Available:</b>
-					<p th:text="${movie.seats}" class="movie__detail">
-						Seats</p>
+					<b><p th:if="${movie.seats} > 0" th:text="${movie.seats}" class="movie__detail">
+						Seats</p></b>
+					<b><p th:if="${movie.seats} <= 0" class="movie__detail_1">
+						Tickets are unavailable</p></b>
 					</div>
 					<div class="movie__detail">
 					<p th:if="${cond} == True">

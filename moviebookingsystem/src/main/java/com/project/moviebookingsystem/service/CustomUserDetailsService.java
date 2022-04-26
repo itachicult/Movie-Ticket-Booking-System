@@ -5,7 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import com.project.moviebookingsystem.model.CustomUserDetails;
+import com.project.moviebookingsystem.details.CustomUserDetails;
 import com.project.moviebookingsystem.model.User;
 import com.project.moviebookingsystem.repository.UserRepository;
 

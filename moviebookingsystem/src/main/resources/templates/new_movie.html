@@ -45,32 +45,32 @@
                 <form action="#" th:action="@{/save}" th:object="${Movie}" method="post">
                     <div class="form-group">
                         <label for="inputmovie">Movie Name</label>
-                        <input type="text" th:field="*{moviename}" class="form-control" id="inputmovie" placeholder="Movie Name">
+                        <input type="text" th:field="*{moviename}" class="form-control" id="inputmovie" placeholder="Movie Name" required>
                     </div>
                     <div class="form-group">
                         <label for="inputMovieLink">Movie image link</label>
-                        <input type="text" th:field="*{movieimg}" class="form-control" id="inputMovieLink" placeholder="Link">
+                        <input type="text" th:field="*{movieimg}" class="form-control" id="inputMovieLink" placeholder="Link" required>
                     </div>
                     <div class="form-group">
                         <label for="inputgenre">Movie Genre</label>
-                        <input type="text" th:field="*{moviegenre}" class="form-control" id="inputgenre" placeholder="Genre">
+                        <input type="text" th:field="*{moviegenre}" class="form-control" id="inputgenre" placeholder="Genre" required>
                     </div>
                     <div class="form-group">
                         <label for="inputDescription">Movie Description</label>
-                        <textarea class="form-control" th:field="*{moviedescription}" id="inputDescription" placeholder="Description" rows="3"></textarea>
+                        <textarea class="form-control" th:field="*{moviedescription}" id="inputDescription" placeholder="Description" rows="3" required></textarea>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="inputrat4">Movie Rating</label>
-                            <input type="number" th:field="*{movierating}" class="form-control" id="inputrat4" placeholder="Movie rating">
+                            <input type="number" min="0" max="10" th:field="*{movierating}" class="form-control" id="inputrat4" placeholder="Movie rating" required>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputpr4">Parental Rating:</label>
-                            <input type="text" th:field="*{parentalrating}" class="form-control" id="inputpr4" placeholder="Parental Rating:">
+                            <input type="text" th:field="*{parentalrating}" class="form-control" id="inputpr4" placeholder="Parental Rating:" required>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="input4">Movie Price</label>
-                            <input type="number" th:field="*{movieprice}" class="form-control" id="input4" placeholder="Movie Price">
+                            <input type="number" th:field="*{movieprice}" class="form-control" id="input4" placeholder="Movie Price" required>
                         </div>
                     </div>
                     <div class="form-group"></div>

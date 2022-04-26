@@ -1,9 +1,11 @@
-package com.project.moviebookingsystem.model;
+package com.project.moviebookingsystem.details;
 
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.project.moviebookingsystem.model.User;
  
 public class CustomUserDetails implements UserDetails {
  

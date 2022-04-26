@@ -1,4 +1,4 @@
-package com.project.moviebookingsystem;
+package com.project.moviebookingsystem.config;
 
 import javax.sql.DataSource;
 
