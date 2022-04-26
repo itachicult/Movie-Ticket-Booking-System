@@ -11,4 +11,6 @@ import com.project.moviebookingsystem.model.Movie;
 public interface MovieRepository extends JpaRepository<Movie, Long>{
 	 @Query(value = "select * from movie m where m.moviename like %:keyword%", nativeQuery = true)
 	 List<Movie> findByKeyword(@Param("keyword") String keyword);
+	 @Query(value = "select * from movie m where m.moviename like %:keyword% limit 1", nativeQuery = true)
+	 Movie findByMovieName(@Param("keyword") String keyword);
 }

@@ -17,7 +17,8 @@ public class Movie {
 	private float movieprice;
 	private String movieimg;
 	private String parentalrating;
-	
+	private long seats;
+
 	public Movie() {
 	}
 
@@ -86,6 +87,16 @@ public class Movie {
 
 	public void setParentalrating(String parentalrating) {
 		this.parentalrating = parentalrating;
+	}
+
+	
+	public long getSeats() {
+		return seats;
+	}
+
+
+	public void setSeats(long seats) {
+		this.seats = seats;
 	}
 
 	

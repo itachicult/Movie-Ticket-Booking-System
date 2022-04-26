@@ -6,6 +6,7 @@
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css"
 	rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
 	integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
@@ -45,7 +46,7 @@
 }
 
 .movie {
-	max-width: 800px;
+	max-width: 1050px;
 	border-radius: 5px;
 	display: flex;
 	box-shadow: 0 5px 20px 10px rgba(0, 0, 0, 0.2);
@@ -115,10 +116,12 @@
 
 .movie__description {
 	font-size: 17px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .movie__details {
-	display: flex;
+	align-items: center;
 	margin: auto;
 }
 
@@ -181,7 +184,7 @@
 	</nav>
 	<div class="card" align="center">
 		<br /> <a href="/new">
-			<button type="button" class="btn btn-primary btn-lg">Create
+			<button th:if="${cond} == True" type="button" class="btn btn-primary btn-lg">Create
 				New Movie</button>
 		</a> <br /> <br />
 		<div class="jumbotron">
@@ -212,13 +215,18 @@
 				<p th:text="${movie.moviedescription}" class="movie__description">
 					Movie Description</p>
 				<div class="movie__details">
-					<p th:text="${movie.movierating}" class="movie__detail">
+				<b>Movie Rating:</b><p th:text="${movie.movierating}" class="movie__detail">
 						<span class="icons icons-red">Movie Rating
 						</span>
 					</p>
+					<b>Parental Rating :</b>
 					<p th:text="${movie.parentalrating}" class="movie__detail">
-						Parental Rating
-					</p>
+						Parental Rating</p>
+					<b>Seats Available:</b>
+					<p th:text="${movie.seats}" class="movie__detail">
+						Seats</p>
+					</div>
+					<div class="movie__detail">
 					<p th:if="${cond} == True">
 						<a th:href="@{'/edit/' + ${movie.id}}">
 							<button type="button" class="btn btn-primary">Edit Movie</button>
@@ -239,4 +247,3 @@
 	</div>
 </body>
 </html>
-F

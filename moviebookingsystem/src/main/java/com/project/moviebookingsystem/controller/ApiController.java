@@ -5,12 +5,10 @@ import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -120,6 +118,11 @@ public class ApiController {
 	
 	@RequestMapping(value = "/saveticket", method = RequestMethod.POST)
 	public String saveMovieTicket(@ModelAttribute("movieticket") movieticket movieticket) {
+		List<Movie> movie = service.findByMovieName(movieticket.getMoviename());
+		Movie rec = movie.get(0);
+		long remTickets = rec.getSeats() - movieticket.getNumberoftickets();
+		rec.setSeats(remTickets);
+		service.save(rec);
 		ticketservice.save(movieticket);
 	    return "redirect:/confirm";
 	}
@@ -131,6 +134,7 @@ public class ApiController {
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String saveMovie(@ModelAttribute("Movie") Movie movie) {
+		movie.setSeats(300);
 	    service.save(movie);
 	    return "redirect:/movielist";
 	}

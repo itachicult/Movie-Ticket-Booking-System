@@ -34,4 +34,8 @@ public class MovieService {
 		  keyword = keyword.toLowerCase();
 		  return repo.findByKeyword(keyword);
 	}
+	public List<Movie> findByMovieName(String keyword){
+		  keyword = keyword.toLowerCase();
+		  return repo.findByKeyword(keyword);
+	}
 }
