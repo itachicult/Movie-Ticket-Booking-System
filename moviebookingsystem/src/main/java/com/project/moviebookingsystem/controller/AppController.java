@@ -155,6 +155,12 @@ public class AppController {
 	
 	@RequestMapping("/deleteticket/{id}")
 	public String deleteMovieTicket(@PathVariable(name = "id") int id) {
+		movieticket movieticket = ticketservice.get(id);
+		List<Movie> movie = service.findByMovieName(movieticket.getMoviename());
+		Movie rec = movie.get(0);
+		long remTickets = rec.getSeats() + movieticket.getNumberoftickets();
+		rec.setSeats(remTickets);
+		service.save(rec);
 		ticketservice.delete(id);
 	    return "redirect:/profile";       
 	}
